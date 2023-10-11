@@ -8,6 +8,7 @@ using RpgApi.Models;
 using RpgApi.Utils;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace RpgApi.Controllers
 {
     [ApiController]
@@ -54,17 +55,36 @@ namespace RpgApi.Controllers
             }
         }
 
-        [HttpGet("GetPersonagemHabilidade/{id}")]
+        [HttpGet("GetPersonagemHabilidades/{id}")]
         public async Task<IActionResult> GetPersonagemHabilidade(int id)
         {
             try
             {
-                List<PersonagemHabilidade> lista = await _context.TB_PERSONAGENS_HABILIDADES.ToListAsync();
-                List<PersonagemHabilidade> phBusca = lista.FindAll(ph => ph.PersonagemId == id);
+                PersonagemHabilidade? validarPH = await _context.TB_PERSONAGENS_HABILIDADES
+                    .FirstOrDefaultAsync(p => p.PersonagemId == id);
 
-                //preciso mostrar as info da habilidade na busca
+                if(validarPH == null){
+                    throw new System.Exception("Personagem não existe");
+                }
+                else{
+                    
+                    var busca = 
+                        from ph in _context.TB_PERSONAGENS_HABILIDADES
+                        join p in _context.TB_PERSONAGENS on ph.PersonagemId equals p.Id
+                        join h in _context.TB_HABILIDADES on ph.HabilidadeId equals h.Id
+                        where ph.PersonagemId == id
+                        select new 
+                        {
+                            PersonagemId = p.Id, 
+                            PersonagemNome = p.Nome,
+                            HabilidadeID = h.Id,
+                            HabilidadeNome = h.Nome,
+                            HabilidadeDano = h.Dano
 
-                return Ok(phBusca);
+                        };
+                    
+                    return Ok(busca.ToList());
+                }
             }
             catch (System.Exception ex)
             {
