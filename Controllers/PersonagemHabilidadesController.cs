@@ -91,5 +91,20 @@ namespace RpgApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet("GetHabilidades")]
+        public async Task<IActionResult> GetAll()
+        {
+            try
+            {
+                List<Habilidade> listaHabilidades = await _context.TB_HABILIDADES.ToListAsync();
+                return Ok(listaHabilidades);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        
     }
 }
