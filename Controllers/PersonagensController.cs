@@ -63,6 +63,10 @@ namespace RpgApi.Controllers
                 {
                     throw new Exception("Pontos de vida não pode ser maior que 100");
                 }
+                Usuario usuario = await _context.TB_USUARIOS
+                    .FirstOrDefaultAsync(x => x.Id == novoPersonagem.UsuarioId);
+
+                novoPersonagem.Usuario = usuario;
                 await _context.TB_PERSONAGENS.AddAsync(novoPersonagem);
                 await _context.SaveChangesAsync();
 
@@ -104,6 +108,26 @@ namespace RpgApi.Controllers
                 _context.TB_PERSONAGENS.Remove(pRemover);
                 int linhaAfetadas = await _context.SaveChangesAsync();
                 return Ok(linhaAfetadas);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+    
+        [HttpGet("GetUsuarioPersonagem/{id}")] //Buscar pelo id
+        public async Task<IActionResult> GetUsuarioPersonagem(int id)
+        {
+            try
+            {
+                Personagem p = await _context.TB_PERSONAGENS
+                    .Include(ar => ar.Arma)//carrega a prop ao objeto
+                    .Include(ph => ph.PersonagemHabilidades)
+                        .ThenInclude(h => h.Habilidade)//carrega lista de habilidades do objeto
+                    .Include(us => us.Usuario)
+                    .FirstOrDefaultAsync(pBusca => pBusca.Id == id);
+
+                return Ok(p);
             }
             catch (System.Exception ex)
             {

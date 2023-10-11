@@ -53,5 +53,23 @@ namespace RpgApi.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet("GetPersonagemHabilidade/{id}")]
+        public async Task<IActionResult> GetPersonagemHabilidade(int id)
+        {
+            try
+            {
+                List<PersonagemHabilidade> lista = await _context.TB_PERSONAGENS_HABILIDADES.ToListAsync();
+                List<PersonagemHabilidade> phBusca = lista.FindAll(ph => ph.PersonagemId == id);
+
+                //preciso mostrar as info da habilidade na busca
+
+                return Ok(phBusca);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
