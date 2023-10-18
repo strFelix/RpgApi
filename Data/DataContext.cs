@@ -21,6 +21,7 @@ namespace RpgApi.Data
         public DbSet<Usuario> TB_USUARIOS { get; set; }
         public DbSet<Habilidade> TB_HABILIDADES { get; set; }
         public DbSet<PersonagemHabilidade> TB_PERSONAGENS_HABILIDADES { get; set; }
+        public DbSet<Disputa> TB_DISPUTAS { get; set; }
 
         
 
