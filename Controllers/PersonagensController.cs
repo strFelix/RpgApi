@@ -223,7 +223,7 @@ namespace RpgApi.Controllers
                 await ZerarRankingAsync(p);
                 await RestaurarPontosVidaAsync(p);
                 }
-                return Ok();
+                return Ok("Disputas e pontos de vida resetados");
             }
             catch (System.Exception ex)
             {
