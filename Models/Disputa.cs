@@ -29,7 +29,7 @@ namespace RpgApi.Models
         public List<int>? ListaIdPersonagem { get; set; }
 
         [NotMapped]
-        public List<int>? Resultados { get; set; }
+        public List<string>? Resultados { get; set; }
 
     }
 }
