@@ -36,13 +36,17 @@ namespace RpgApi.Controllers
                 if(dano > 0)
                     oponente.PontosVida -= (int)dano;
 
-                if(oponente.PontosVida <= 0)
+                if(oponente.PontosVida <= 0){
                     d.Narracao = $"{oponente.Nome} foi derrotado!";
+                    atacante.Vitorias += atacante.Vitorias;
+                    oponente.Derrotas += oponente.Derrotas;
+                }
 
                 oponente.Disputas += oponente.Disputas;
                 atacante.Disputas += atacante.Disputas;
 
                 _context.TB_PERSONAGENS.Update(oponente);
+                _context.TB_PERSONAGENS.Update(atacante);
                 await _context.SaveChangesAsync();
 
                 StringBuilder dados = new StringBuilder();
@@ -98,13 +102,18 @@ namespace RpgApi.Controllers
                     if(dano > 0)
                         oponente.PontosVida -= (int)dano;
 
-                    if(oponente.PontosVida <= 0)
+                    if(oponente.PontosVida <= 0){
                         d.Narracao = $"{oponente.Nome} foi derrotado!";
+                        atacante.Vitorias += atacante.Vitorias;
+                        oponente.Derrotas += oponente.Derrotas;
+                    }
+                        
 
                     oponente.Disputas += oponente.Disputas;
                     atacante.Disputas += atacante.Disputas;
 
                     _context.TB_PERSONAGENS.Update(oponente);
+                    _context.TB_PERSONAGENS.Update(atacante);
                     await _context.SaveChangesAsync();
 
                     StringBuilder dados = new StringBuilder();
