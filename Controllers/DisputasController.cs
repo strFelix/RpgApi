@@ -38,12 +38,12 @@ namespace RpgApi.Controllers
 
                 if(oponente.PontosVida <= 0){
                     d.Narracao = $"{oponente.Nome} foi derrotado!";
-                    atacante.Vitorias += atacante.Vitorias;
-                    oponente.Derrotas += oponente.Derrotas;
+                    atacante.Vitorias = atacante.Vitorias + 1;
+                    oponente.Derrotas = oponente.Derrotas + 1;
                 }
 
-                oponente.Disputas += oponente.Disputas;
-                atacante.Disputas += atacante.Disputas;
+                oponente.Disputas = oponente.Disputas + 1;
+                atacante.Disputas = atacante.Disputas + 1;
 
                 _context.TB_PERSONAGENS.Update(oponente);
                 _context.TB_PERSONAGENS.Update(atacante);
@@ -104,13 +104,13 @@ namespace RpgApi.Controllers
 
                     if(oponente.PontosVida <= 0){
                         d.Narracao = $"{oponente.Nome} foi derrotado!";
-                        atacante.Vitorias += atacante.Vitorias;
-                        oponente.Derrotas += oponente.Derrotas;
+                        atacante.Vitorias = atacante.Vitorias + 1;
+                        oponente.Derrotas = oponente.Derrotas + 1;
                     }
                         
 
-                    oponente.Disputas += oponente.Disputas;
-                    atacante.Disputas += atacante.Disputas;
+                    oponente.Disputas = oponente.Disputas + 1;
+                    atacante.Disputas = atacante.Disputas + 1;
 
                     _context.TB_PERSONAGENS.Update(oponente);
                     _context.TB_PERSONAGENS.Update(atacante);
