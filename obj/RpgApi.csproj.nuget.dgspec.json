@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Documents\\Projects\\RpgApi\\RpgApi.csproj": {}
+    "C:\\Users\\Felix\\Desktop\\Projetos\\Projects\\RpgApi\\RpgApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Documents\\Projects\\RpgApi\\RpgApi.csproj": {
+    "C:\\Users\\Felix\\Desktop\\Projetos\\Projects\\RpgApi\\RpgApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Documents\\Projects\\RpgApi\\RpgApi.csproj",
+        "projectUniqueName": "C:\\Users\\Felix\\Desktop\\Projetos\\Projects\\RpgApi\\RpgApi.csproj",
         "projectName": "RpgApi",
-        "projectPath": "C:\\Users\\User\\Documents\\Projects\\RpgApi\\RpgApi.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Documents\\Projects\\RpgApi\\obj\\",
+        "projectPath": "C:\\Users\\Felix\\Desktop\\Projetos\\Projects\\RpgApi\\RpgApi.csproj",
+        "packagesPath": "C:\\Users\\Felix\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Felix\\Desktop\\Projetos\\Projects\\RpgApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Felix\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -76,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }

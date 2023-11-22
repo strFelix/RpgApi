@@ -39,6 +39,9 @@ namespace RpgApi.Controllers
                 if(oponente.PontosVida <= 0)
                     d.Narracao = $"{oponente.Nome} foi derrotado!";
 
+                oponente.Disputas += oponente.Disputas;
+                atacante.Disputas += atacante.Disputas;
+
                 _context.TB_PERSONAGENS.Update(oponente);
                 await _context.SaveChangesAsync();
 
@@ -97,6 +100,9 @@ namespace RpgApi.Controllers
 
                     if(oponente.PontosVida <= 0)
                         d.Narracao = $"{oponente.Nome} foi derrotado!";
+
+                    oponente.Disputas += oponente.Disputas;
+                    atacante.Disputas += atacante.Disputas;
 
                     _context.TB_PERSONAGENS.Update(oponente);
                     await _context.SaveChangesAsync();
