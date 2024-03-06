@@ -6,7 +6,6 @@ namespace RpgApi.Models
     public class Usuario
     {        
         public int Id { get; set; } //Atalho para propridade (PROP + TAB)
-        public string Username { get; set; } = string.Empty;
         public byte[] PasswordHash { get; set; } 
         public byte[] PasswordSalt { get; set; } 
         public byte[]? Foto { get; set; }
@@ -14,6 +13,9 @@ namespace RpgApi.Models
         public double? Longitude { get; set; }
         public DateTime? DataAcesso { get; set; } //using System;
 
+        [NotMapped]
+        public string Token { get; set; }
+        public string Username { get; set; } = string.Empty;
         [NotMapped] // using System.ComponentModel.DataAnnotations.Schema
         public string PasswordString { get; set; } = string.Empty;
         public List<Personagem> Personagens { get; set; }//using System.Collections.Generic;
